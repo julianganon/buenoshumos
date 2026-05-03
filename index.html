@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buenos Humos · Cerámica Artesanal · Magdalena</title>
+  <!-- Open Graph / WhatsApp / redes sociales -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://buenoshumosmgd.vercel.app/"/>
+  <meta property="og:title" content="Buenos Humos · Cerámica Artesanal"/>
+  <meta property="og:description" content="Cerámica artesanal 100% hecha a mano. Magdalena, Bs.As. Descubrí nuestro catálogo de piezas únicas."/>
+  <meta property="og:image" content="https://buenoshumosmgd.vercel.app/imgs/og-preview.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="es_AR"/>
+  <!-- WhatsApp / Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Buenos Humos · Cerámica Artesanal"/>
+  <meta name="twitter:description" content="Cerámica artesanal 100% hecha a mano. Magdalena, Bs.As."/>
+  <meta name="twitter:image" content="https://buenoshumosmgd.vercel.app/imgs/og-preview.png"/>
+  <!-- SEO -->
+  <meta name="description" content="Buenos Humos - Cerámica artesanal 100% hecha a mano en Magdalena, Buenos Aires. Pedidos a medida, piezas únicas."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:    #E1DCD1;
+      --blush:    #BFB49C;
+      --rose:     #A57350;
+      --rose-d:   #8A5E3A;
+      --terrac:   #4A5029;
+      --brown:    #2C2E18;
+      --white:    #F5F2EC;
+      --grey:     #7A7260;
+      --border:   #BFB49C;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--brown); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.7; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--cream); border-bottom: 1px solid var(--border);
+      padding: .9rem 3rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--rose-d); }
+
+    /* HERO */
+    #hero { min-height: 100vh; background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 2rem 4rem; position: relative; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 80%, #BFB49C44 0%, transparent 70%); z-index: 0; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-eyebrow { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.2rem; display: block; }
+    .hero-icon { font-size: 3.5rem; display: block; margin-bottom: .6rem; animation: sway 4s ease-in-out infinite; }
+    @keyframes sway { 0%,100%{transform:rotate(-4deg)} 50%{transform:rotate(4deg)} }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 700; line-height: 1; color: var(--brown); }
+    .hero-title em { color: var(--rose-d); font-style: italic; display: block; }
+    .hero-sub { font-size: .82rem; letter-spacing: .2em; text-transform: uppercase; color: var(--grey); margin-top: 1rem; margin-bottom: 2rem; }
+    .hero-cta { display: inline-block; background: var(--terrac); color: var(--white); padding: .9rem 2.4rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; border-radius: 50px; transition: all .25s; box-shadow: 0 4px 18px rgba(196,133,122,.35); }
+    .hero-cta:hover { background: #3a4020; transform: translateY(-2px); }
+    .hero-cta-ghost { display: inline-block; border: 1.5px solid var(--terrac); color: var(--terrac); padding: .9rem 2.4rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; border-radius: 50px; margin-left: 1rem; transition: all .25s; }
+    .hero-cta-ghost:hover { background: #BFB49C44; }
+
+    /* SECTIONS */
+    section { padding: 5rem 3rem; }
+    .section-eyebrow { display: block; font-size: .65rem; letter-spacing: .28em; text-transform: uppercase; color: var(--rose); margin-bottom: .5rem; text-align: center; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-align: center; color: var(--brown); margin-bottom: .5rem; }
+    .section-title em { font-style: italic; color: var(--rose-d); }
+    .section-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1.2rem 0 3rem; }
+    .section-divider::before,.section-divider::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: var(--border); }
+    .section-divider span { font-size: .9rem; color: var(--rose); }
+
+    /* SOBRE */
+    #sobre { background: var(--blush); }
+    .sobre-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1000px; margin: 0 auto; }
+    .sobre-img-wrap { position: relative; }
+    .sobre-img-frame { width: 100%; aspect-ratio: 4/5; background: var(--border); border: 1px solid var(--rose); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-style: italic; color: var(--grey); font-size: 1rem; overflow: hidden; }
+    .sobre-img-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre-frame-deco { position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 1px solid var(--border); pointer-events: none; }
+    .sobre-text p { font-size: .93rem; color: var(--brown); opacity: .8; margin-bottom: 1rem; }
+    .sobre-highlight { background: var(--white); border-left: 3px solid var(--rose); padding: 1rem 1.4rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--rose-d); }
+
+    /* CATÁLOGO */
+    #catalogo { background: var(--white); }
+    .cat-filters { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 3rem; }
+    .cat-filter-btn { padding: .4rem 1.2rem; border: 1.5px solid var(--border); border-radius: 50px; background: transparent; font-family: 'Lato', sans-serif; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); cursor: pointer; transition: all .2s; }
+    .cat-filter-btn:hover, .cat-filter-btn.active { background: var(--rose); border-color: var(--rose); color: var(--white); }
+    .cat-category-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; font-style: italic; color: var(--brown); border-bottom: 1px solid var(--border); padding-bottom: .4rem; margin: 3rem 0 1.8rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.5rem; }
+    .product-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(196,133,122,.18); }
+    .product-img { width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--blush); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; cursor: zoom-in; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-info { padding: 1rem 1.1rem 1.2rem; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 600; color: var(--brown); margin-bottom: .2rem; }
+    .product-detail { font-size: .72rem; color: var(--grey); margin-bottom: .5rem; }
+    .product-price { font-size: 1rem; font-weight: 700; color: var(--rose-d); }
+    .product-consult { font-size: .7rem; color: var(--grey); font-style: italic; margin-top: .2rem; }
+    .product-wa-btn { display: inline-block; margin-top: .8rem; background: var(--rose); color: var(--white); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 50px; text-decoration: none; transition: background .2s; }
+    .product-wa-btn:hover { background: var(--terrac); }
+
+    /* GALERÍA */
+    #galeria { background: var(--blush); }
+    .gallery-masonry { columns: 4; column-gap: .8rem; }
+    .gallery-item { break-inside: avoid; margin-bottom: .8rem; overflow: hidden; cursor: pointer; position: relative; background: var(--border); border-radius: 4px; }
+    .gallery-item img { display: block; width: 100%; height: auto; transition: transform .4s, filter .3s; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item .g-overlay { position: absolute; inset: 0; background: rgba(61,31,26,.35); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; padding: .8rem; }
+    .gallery-item:hover .g-overlay { opacity: 1; }
+    .g-overlay span { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--white); background: var(--rose); padding: .2rem .6rem; border-radius: 50px; }
+    .gallery-empty { text-align: center; padding: 3rem; border: 1px dashed var(--border); border-radius: 4px; color: var(--grey); font-style: italic; font-family: 'Playfair Display', serif; }
+
+    /* INFO */
+    #info { background: var(--white); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .info-card { text-align: center; padding: 2rem 1.5rem; border: 1px solid var(--border); background: var(--cream); border-radius: 4px; }
+    .info-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .info-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--brown); margin-bottom: .6rem; }
+    .info-desc { font-size: .83rem; color: var(--grey); line-height: 1.7; }
+    .info-highlight { background: var(--blush); border: 1.5px solid var(--rose); border-radius: 4px; padding: 2rem; max-width: 700px; margin: 2.5rem auto 0; text-align: center; }
+    .info-highlight p { font-size: .88rem; color: var(--brown); line-height: 1.8; }
+    .info-highlight strong { color: var(--rose-d); }
+
+    /* CÓMO PEDIR */
+    #pedido { background: var(--blush); }
+    .pedido-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .step { text-align: center; padding: 2rem 1rem; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--terrac); color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step-title { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--brown); margin-bottom: .4rem; }
+    .step-desc { font-size: .78rem; color: var(--grey); line-height: 1.6; }
+
+    /* CONTACTO */
+    #contacto { background: var(--terrac); text-align: center; }
+    #contacto .section-title { color: var(--cream); }
+    #contacto .section-eyebrow { color: var(--rose); }
+    .contacto-desc { color: var(--grey); font-size: .9rem; margin-bottom: 2.5rem; }
+    .contacto-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .wa-btn { display: inline-flex; align-items: center; gap: .6rem; background: #4CAF75; color: var(--white); padding: 1rem 2.2rem; border-radius: 50px; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 20px rgba(76,175,117,.4); transition: all .25s; }
+    .wa-btn:hover { background: #3d9962; transform: translateY(-2px); }
+    .ig-btn { display: inline-flex; align-items: center; gap: .6rem; background: transparent; border: 1.5px solid var(--rose); color: var(--rose); padding: 1rem 2.2rem; border-radius: 50px; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; transition: all .25s; }
+    .ig-btn:hover { background: var(--rose); color: var(--white); }
+
+    /* FOOTER */
+    footer { background: #2C2E18; border-top: 1px solid rgba(255,255,255,.07); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; color: var(--grey); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-admin-btn { background: none; border: none; color: transparent; cursor: pointer; font-size: 1px; padding: 6px; }
+
+    /* LIGHTBOX */
+    #lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(61,31,26,.93); align-items: center; justify-content: center; }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 86vh; object-fit: contain; border-radius: 4px; }
+    #lightbox-close { position: fixed; top: 1.5rem; right: 2rem; color: var(--blush); font-size: 2rem; cursor: pointer; background: none; border: none; }
+    #lightbox-caption { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--blush); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; background: rgba(61,31,26,.7); padding: .4rem 1.2rem; border-radius: 50px; }
+
+    /* ADMIN */
+    #admin-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(61,31,26,.85); align-items: flex-start; justify-content: center; padding: 3rem 1rem; overflow-y: auto; }
+    #admin-modal.active { display: flex; }
+    .admin-box { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; width: min(620px, 96vw); border-radius: 4px; }
+    .admin-box h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: var(--rose-d); margin-bottom: 1.5rem; }
+    .admin-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .admin-tab { padding: .6rem 1.4rem; background: none; border: none; border-bottom: 2px solid transparent; font-family: 'Lato', sans-serif; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); cursor: pointer; margin-bottom: -1px; transition: all .2s; }
+    .admin-tab.active { color: var(--rose-d); border-bottom-color: var(--rose-d); }
+    .admin-pane { display: none; }
+    .admin-pane.active { display: block; }
+    .admin-input, .admin-select { width: 100%; padding: .65rem .9rem; border: 1px solid var(--border); background: var(--cream); font-family: 'Lato', sans-serif; font-size: .85rem; color: var(--brown); margin-bottom: .85rem; outline: none; border-radius: 3px; }
+    .admin-input:focus, .admin-select:focus { border-color: var(--rose); }
+    .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .admin-btn { padding: .7rem 1.8rem; background: var(--rose); color: var(--white); border: none; cursor: pointer; border-radius: 50px; font-family: 'Lato', sans-serif; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; transition: background .2s; }
+    .admin-btn:hover { background: var(--terrac); }
+    .admin-btn-sec { padding: .7rem 1.8rem; background: transparent; color: var(--grey); border: 1px solid var(--border); cursor: pointer; border-radius: 50px; font-family: 'Lato', sans-serif; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; margin-left: .7rem; transition: all .2s; }
+    .admin-hint { font-size: .74rem; color: var(--grey); margin-bottom: 1.2rem; line-height: 1.7; }
+    .admin-list-header { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rose); margin: 1.8rem 0 .8rem; }
+    .admin-prod-item { display: flex; align-items: center; gap: .8rem; padding: .65rem 0; border-bottom: 1px solid var(--border); }
+    .admin-prod-img { width: 48px; height: 48px; object-fit: cover; background: var(--blush); border-radius: 3px; flex-shrink: 0; }
+    .admin-prod-info { flex: 1; }
+    .admin-prod-name { font-size: .85rem; color: var(--brown); }
+    .admin-prod-meta { font-size: .7rem; color: var(--grey); }
+    .admin-del { background: none; border: none; cursor: pointer; color: #c0392b; font-size: .9rem; padding: .3rem; }
+    #admin-login {} #admin-panel { display: none; }
+
+    /* GUÍA */
+    .guia-section { margin-bottom: 2rem; }
+    .guia-section h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--rose-d); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+    .guia-steps { display: flex; flex-direction: column; gap: .5rem; }
+    .guia-step { display: flex; gap: .9rem; align-items: flex-start; padding: .7rem .9rem; background: var(--cream); border-radius: 4px; border: 1px solid var(--border); }
+    .guia-step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--rose); color: var(--white); font-size: .72rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .1rem; }
+    .guia-step-text { font-size: .8rem; color: var(--brown); line-height: 1.5; }
+    .guia-step-text strong { color: var(--rose-d); }
+    .guia-step-text code { background: var(--blush); padding: .1rem .4rem; border-radius: 3px; font-family: monospace; font-size: .75rem; color: var(--terrac); }
+    .guia-tip { background: var(--blush); border-left: 3px solid var(--rose); padding: .8rem 1rem; border-radius: 0 4px 4px 0; font-size: .78rem; color: var(--brown); margin-top: 1rem; line-height: 1.6; }
+    .guia-tip strong { color: var(--rose-d); }
+    .guia-divider { border: none; border-top: 1px solid var(--border); margin: 1.8rem 0; }
+    .guia-method-badge { display: inline-block; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 50px; margin-left: .5rem; font-style: normal; }
+    .badge-easy { background: #d4edda; color: #155724; }
+    .badge-tech { background: var(--blush); color: var(--terrac); }
+
+    /* REVEAL - solo desktop */
+    @media (min-width: 769px) {
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
+    }
+    @media (max-width: 768px) {
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) { .gallery-masonry { columns: 3; } }
+    @media (max-width: 768px) {
+      nav { padding: .9rem 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-masonry { columns: 2; }
+      .admin-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .gallery-masonry { columns: 2; }
+      .nav-links { display: none; }
+      .hero-cta-ghost { margin-left: 0; margin-top: .8rem; display: block; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero" id="logo-secret"><img src="imgs/logo.jpg" alt="Buenos Humos" style="height:28px;width:auto;display:block;mix-blend-mode:multiply;filter:sepia(30%) saturate(1.3) brightness(0.85)"/></a>
+  <ul class="nav-links">
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#info">Info</a></li>
+    <li><a href="#pedido">Cómo pedir</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner reveal">
+    <img src="imgs/logo.jpg" alt="Buenos Humos" style="width:min(160px,42vw);height:auto;margin:0 auto 1rem;display:block;mix-blend-mode:multiply;filter:sepia(20%) saturate(1.2) brightness(0.9)"/>
+    <span class="hero-eyebrow">Cerámica artesanal · Magdalena, Bs.As.</span>
+    <h1 class="hero-title">Buenos<br/><em>Humos.</em></h1>
+    <p class="hero-sub">100% hecho a mano · con amor y detalle</p>
+    <div>
+      <a href="#catalogo" class="hero-cta">Ver catálogo</a>
+      <a href="https://wa.me/5492221413749" target="_blank" class="hero-cta-ghost">Hacer un pedido</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-img-wrap reveal">
+      <div class="sobre-frame-deco"></div>
+      <div class="sobre-img-frame"><img src="imgs/taller.jpg" alt="Taller Buenos Humos"/></div>
+    </div>
+    <div class="reveal">
+      <span class="section-eyebrow">Quiénes somos</span>
+      <h2 class="section-title" style="text-align:left;margin-bottom:.4rem">Buenos <em>Humos</em></h2>
+      <div class="section-divider" style="justify-content:flex-start;margin-bottom:1.5rem"><span>✦</span></div>
+      <p>Somos un emprendimiento de <strong>cerámica artesanal</strong> de Magdalena, Buenos Aires. Cada pieza que hacemos es 100% hecha a mano, con amor y cuidando todos los detalles.</p>
+      <div class="sobre-highlight">"Todas las piezas son únicas, ninguna pieza va a ser idéntica a otra."</div>
+      <p>Eso es lo que hace especial a la cerámica artesanal: aunque se use el mismo molde o pintura, cada pieza tiene su propia vida. No hacemos stock — cada pedido se fabrica desde cero para vos.</p>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="reveal">
+    <span class="section-eyebrow">Abril 2026</span>
+    <h2 class="section-title">Catálogo de <em>productos</em></h2>
+    <div class="section-divider"><span>✦</span></div>
+  </div>
+  <div class="cat-filters reveal">
+    <button class="cat-filter-btn active" onclick="filterCat('todos',this)">Todos</button>
+    <button class="cat-filter-btn" onclick="filterCat('desayuno',this)">☕ Desayuno</button>
+    <button class="cat-filter-btn" onclick="filterCat('cocina',this)">🍳 Cocina</button>
+    <button class="cat-filter-btn" onclick="filterCat('picada',this)">🫒 Picada Time</button>
+    <button class="cat-filter-btn" onclick="filterCat('merienda',this)">🫖 Merienda</button>
+    <button class="cat-filter-btn" onclick="filterCat('horno',this)">🔥 Apto Horno</button>
+    <button class="cat-filter-btn" onclick="filterCat('hogar',this)">🌿 Hogar</button>
+    <button class="cat-filter-btn" onclick="filterCat('infaltables',this)">⭐ Infaltables</button>
+    <button class="cat-filter-btn" onclick="filterCat('varios',this)">✨ Varios</button>
+  </div>
+  <div id="products-container" class="reveal"></div>
+</section>
+
+<section id="galeria">
+  <div class="reveal">
+    <span class="section-eyebrow">Portfolio</span>
+    <h2 class="section-title">Galería de <em>obras</em></h2>
+    <div class="section-divider"><span>✦</span></div>
+    <p style="text-align:center;color:var(--grey);font-size:.85rem;margin-bottom:2rem;">Cada pieza es única. Escribinos para ver disponibilidad.</p>
+  </div>
+  <div id="gallery-masonry" class="gallery-masonry reveal"></div>
+  <div id="gallery-empty" class="gallery-empty" style="display:none;">
+    <div>🏺</div>
+    <p style="font-family:'Lato',sans-serif;font-size:.8rem;font-style:normal;margin-top:.5rem;">Agregá fotos desde el panel de administración.</p>
+  </div>
+</section>
+
+<section id="info">
+  <div class="reveal">
+    <span class="section-eyebrow">Importante saber</span>
+    <h2 class="section-title">Información <em>importante</em></h2>
+    <div class="section-divider"><span>✦</span></div>
+  </div>
+  <div class="info-grid reveal">
+    <div class="info-card"><span class="info-icon">🤲</span><div class="info-title">100% Hecho a mano</div><div class="info-desc">Cada pieza se elabora artesanalmente con amor y cuidando todos los detalles.</div></div>
+    <div class="info-card"><span class="info-icon">✨</span><div class="info-title">Piezas únicas</div><div class="info-desc">Ninguna pieza será idéntica a otra, aunque use el mismo molde o pintura.</div></div>
+    <div class="info-card"><span class="info-icon">🗓️</span><div class="info-title">Tiempos de producción</div><div class="info-desc">Una vez confirmado el pedido, los tiempos varían entre 3 y 4 semanas.</div></div>
+    <div class="info-card"><span class="info-icon">🚲</span><div class="info-title">Envíos</div><div class="info-desc">Hacemos envíos dentro del casco urbano de Magdalena con un costo adicional de $500.</div></div>
+  </div>
+  <div class="info-highlight reveal">
+    <p><strong>No contamos con stock.</strong> Los pedidos comienzan su fabricación desde 0 una vez abonada la <strong>seña del 50%</strong> del valor total de la pieza.</p>
+  </div>
+</section>
+
+<section id="pedido">
+  <div class="reveal">
+    <span class="section-eyebrow">Es muy fácil</span>
+    <h2 class="section-title">¿Cómo hacer <em>tu pedido?</em></h2>
+    <div class="section-divider"><span>✦</span></div>
+  </div>
+  <div class="pedido-steps reveal">
+    <div class="step"><div class="step-num">1</div><div class="step-title">Elegí tu pieza</div><div class="step-desc">Explorá el catálogo y elegí la pieza que querés. Podés pedir colores y diseños personalizados.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-title">Escribinos</div><div class="step-desc">Contactanos por Instagram <strong>@buenoshumos.mgd</strong> o por WhatsApp al <strong>2221413749</strong>.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-title">Mandá la info</div><div class="step-desc">Tu nombre, una foto o referencia de la pieza, colores y diseño elegidos.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-title">Abonás la seña</div><div class="step-desc">Se abona el 50% del valor total para comenzar la fabricación. El resto al retirar.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-title">¡A esperar!</div><div class="step-desc">En 3 a 4 semanas tu pieza única estará lista, hecha con amor especialmente para vos.</div></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="reveal">
+    <span class="section-eyebrow">Hablemos</span>
+    <h2 class="section-title">Hacé tu <em>pedido</em></h2>
+    <div class="section-divider"><span style="color:var(--rose)">✦</span></div>
+    <p class="contacto-desc">¿Tenés una idea en mente? ¡Nos encantan los desafíos nuevos!</p>
+    <div class="contacto-buttons">
+      <a href="https://wa.me/5492221413749?text=Hola%20Nazarena!%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20hacer%20un%20pedido" target="_blank" class="wa-btn">💬 WhatsApp · Nazarena</a>
+      <a href="https://instagram.com/buenoshumos.mgd" target="_blank" class="ig-btn">📷 @buenoshumos.mgd</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Buenos Humos · Cerámica artesanal · Magdalena, Bs.As.</span>
+  <button class="footer-admin-btn" id="admin-open-btn">·</button>
+</footer>
+
+<div id="lightbox">
+  <button id="lightbox-close">×</button>
+  <img id="lightbox-img" src="" alt=""/>
+  <span id="lightbox-caption"></span>
+</div>
+
+<div id="admin-modal">
+  <div class="admin-box">
+    <div id="admin-login">
+      <h2>Panel de administración</h2>
+      <p class="admin-hint">Ingresá la contraseña para acceder.</p>
+      <input type="password" class="admin-input" id="admin-pass" placeholder="Contraseña"/>
+      <button class="admin-btn" onclick="checkPass()">Entrar</button>
+      <button class="admin-btn-sec" onclick="closeAdmin()">Cancelar</button>
+      <p id="admin-err" style="color:#c0392b;font-size:.76rem;margin-top:.6rem;"></p>
+    </div>
+    <div id="admin-panel">
+      <h2>Panel · Buenos Humos</h2>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchTab('tab-prod',this)">Productos</button>
+        <button class="admin-tab" onclick="switchTab('tab-galeria',this)">Galería</button>
+        <button class="admin-tab" onclick="switchTab('tab-precios',this)">Editar precios</button>
+        <button class="admin-tab" onclick="switchTab('tab-guia',this)">📖 Guía</button>
+      </div>
+
+      <div class="admin-pane active" id="tab-prod">
+        <p class="admin-hint">Agregá nuevos productos al catálogo.</p>
+        <div class="admin-row">
+          <input type="text" class="admin-input" id="p-nombre" placeholder="Nombre del producto"/>
+          <input type="text" class="admin-input" id="p-precio" placeholder="Precio (ej: $15.000)"/>
+        </div>
+        <div class="admin-row">
+          <select class="admin-select" id="p-categoria">
+            <option value="desayuno">☕ Desayuno</option>
+            <option value="cocina">🍳 Cocina</option>
+            <option value="picada">🫒 Picada Time</option>
+            <option value="merienda">🫖 Merienda</option>
+            <option value="horno">🔥 Apto Horno</option>
+            <option value="hogar">🌿 Hogar</option>
+            <option value="infaltables">⭐ Infaltables</option>
+            <option value="varios">✨ Varios</option>
+          </select>
+          <input type="text" class="admin-input" id="p-detalle" placeholder="Detalle opcional (ej: 25cm)"/>
+        </div>
+        <input type="text" class="admin-input" id="p-img" placeholder="Link imagen Google Drive (opcional)"/>
+        <input type="text" class="admin-input" id="p-consultar" placeholder="Nota especial (ej: consultar modelo)"/>
+        <button class="admin-btn" onclick="agregarProducto()">+ Agregar producto</button>
+        <button class="admin-btn-sec" onclick="closeAdmin()">Cerrar</button>
+        <p class="admin-msg" id="prod-msg" style="color:var(--rose-d);font-size:.74rem;margin-top:.8rem;"></p>
+      </div>
+
+      <div class="admin-pane" id="tab-galeria">
+        <p class="admin-hint"><strong>Para agregar fotos desde Google Drive:</strong><br/>1. Subí la imagen a Google Drive.<br/>2. Compartir → "Cualquier persona con el enlace puede ver".<br/>3. Copiá el link y pegalo acá.</p>
+        <input type="text" class="admin-input" id="g-url" placeholder="Link de Google Drive"/>
+        <input type="text" class="admin-input" id="g-titulo" placeholder="Nombre de la pieza"/>
+        <button class="admin-btn" onclick="agregarFoto()">+ Agregar foto</button>
+        <button class="admin-btn-sec" onclick="closeAdmin()">Cerrar</button>
+        <p class="admin-msg" id="gal-msg" style="color:var(--rose-d);font-size:.74rem;margin-top:.8rem;"></p>
+        <p class="admin-list-header">Fotos cargadas</p>
+        <div id="admin-gal-list"></div>
+      </div>
+
+      <!-- GUÍA -->
+      <div class="admin-pane" id="tab-guia">
+
+        <!-- SUBIR IMAGEN OPCIÓN A -->
+        <div class="guia-section">
+          <h3>🖼️ Subir una imagen nueva <span class="guia-method-badge badge-easy">Más fácil</span></h3>
+          <p style="font-size:.78rem;color:var(--grey);margin-bottom:1rem;">Usá Google Drive. No necesitás tocar el código.</p>
+          <div class="guia-steps">
+            <div class="guia-step">
+              <div class="guia-step-num">1</div>
+              <div class="guia-step-text">Abrí <strong>Google Drive</strong> y subí la foto de la pieza (arrastrala o "Nuevo → Subir archivo").</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">2</div>
+              <div class="guia-step-text">Hacé clic derecho sobre la imagen → <strong>"Compartir"</strong> → cambiá el acceso a <strong>"Cualquier persona con el enlace"</strong> → Copiar enlace.</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">3</div>
+              <div class="guia-step-text">Volvé acá al panel → pestaña <strong>"Galería"</strong> → pegá el link y ponele un nombre → <strong>"+ Agregar foto"</strong>. ¡Listo, aparece en la galería!</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">4</div>
+              <div class="guia-step-text">Si querés que aparezca como foto de un <strong>producto</strong>, andá a la pestaña <strong>"Productos"</strong>, completá los datos y pegá el mismo link de Drive en el campo "Link imagen".</div>
+            </div>
+          </div>
+          <div class="guia-tip">💡 <strong>El link de Drive tiene que quedar así:</strong><br/><code>https://drive.google.com/file/d/ABC123XYZ/view?usp=sharing</code><br/>Si el link tiene ese formato, la imagen se va a ver correctamente.</div>
+        </div>
+
+        <hr class="guia-divider"/>
+
+        <!-- SUBIR IMAGEN OPCIÓN B - GITHUB -->
+        <div class="guia-section">
+          <h3>📁 Subir una imagen a GitHub <span class="guia-method-badge badge-tech">Requiere cuenta GitHub</span></h3>
+          <p style="font-size:.78rem;color:var(--grey);margin-bottom:1rem;">Esto reemplaza una imagen permanente del catálogo base.</p>
+          <div class="guia-steps">
+            <div class="guia-step">
+              <div class="guia-step-num">1</div>
+              <div class="guia-step-text">Entrá a <strong>github.com</strong> → tu repositorio → carpeta <code>imgs/</code>.</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">2</div>
+              <div class="guia-step-text">Hacé click en <strong>"Add file" → "Upload files"</strong>. Arrastrá la imagen nueva. Importante: si reemplaza una existente, usá el <strong>mismo nombre</strong> (ej: <code>tazas.png</code>).</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">3</div>
+              <div class="guia-step-text">Scroll abajo → click en <strong>"Commit changes"</strong>. En ~1 minuto Vercel redespliega automáticamente y la imagen nueva aparece en la página.</div>
+            </div>
+          </div>
+          <div class="guia-tip">💡 <strong>¿Cuándo conviene usar GitHub en lugar de Drive?</strong> Cuando querés reemplazar la foto oficial de un producto del catálogo (por ejemplo, sacaste una mejor foto de la tartera). Para fotos nuevas de la galería, Drive es más rápido.</div>
+        </div>
+
+        <hr class="guia-divider"/>
+
+        <!-- BORRAR IMAGEN -->
+        <div class="guia-section">
+          <h3>🗑️ Borrar una imagen</h3>
+          <p style="font-size:.78rem;color:var(--grey);margin-bottom:1rem;">Depende de dónde está guardada la imagen.</p>
+          <div class="guia-steps">
+            <div class="guia-step">
+              <div class="guia-step-num">A</div>
+              <div class="guia-step-text"><strong>Si la subiste desde Drive:</strong> Andá a la pestaña <strong>"Galería"</strong> de este panel → buscá la foto → click en la <strong>✕</strong> roja. Desaparece al instante.</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">B</div>
+              <div class="guia-step-text"><strong>Si es una imagen base del catálogo (carpeta imgs/):</strong> Entrá a GitHub → carpeta <code>imgs/</code> → click en la imagen → ícono de <strong>basurero 🗑️</strong> → "Commit changes". Vercel redespliega en ~1 minuto.</div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="guia-divider"/>
+
+        <!-- ACTUALIZAR PRECIO -->
+        <div class="guia-section">
+          <h3>💰 Actualizar un precio</h3>
+          <div class="guia-steps">
+            <div class="guia-step">
+              <div class="guia-step-num">1</div>
+              <div class="guia-step-text">Andá a la pestaña <strong>"Editar precios"</strong> de este panel.</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">2</div>
+              <div class="guia-step-text">Buscá el producto y cambiá el precio en el campo correspondiente.</div>
+            </div>
+            <div class="guia-step">
+              <div class="guia-step-num">3</div>
+              <div class="guia-step-text">Click en <strong>"Guardar cambios"</strong>. Los precios se guardan en el navegador y se ven actualizados al instante.</div>
+            </div>
+          </div>
+          <div class="guia-tip">⚠️ <strong>Importante:</strong> Los precios se guardan en <em>este navegador</em>. Si Nazarena los cambia en su celular, no se van a ver cambiados en el de otra persona. Para actualizar los precios para todos, hay que editar el código en GitHub (pedile ayuda a quien armó la página).</div>
+        </div>
+
+        <hr class="guia-divider"/>
+
+        <!-- RESUMEN RÁPIDO -->
+        <div class="guia-section">
+          <h3>⚡ Resumen rápido</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">Subir foto nueva a la galería</div>
+              <div style="font-size:.75rem;color:var(--grey)">Drive → Compartir link → Panel Galería</div>
+            </div>
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">Reemplazar foto de un producto</div>
+              <div style="font-size:.75rem;color:var(--grey)">GitHub → imgs/ → Upload → mismo nombre</div>
+            </div>
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">Borrar foto de la galería</div>
+              <div style="font-size:.75rem;color:var(--grey)">Panel Galería → ✕ roja</div>
+            </div>
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">Cambiar precio</div>
+              <div style="font-size:.75rem;color:var(--grey)">Panel Editar precios → Guardar</div>
+            </div>
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">Agregar producto nuevo</div>
+              <div style="font-size:.75rem;color:var(--grey)">Panel Productos → completar datos</div>
+            </div>
+            <div class="guia-step" style="flex-direction:column;gap:.3rem;">
+              <div style="font-size:.8rem;font-weight:700;color:var(--rose-d)">¿Algo no anda?</div>
+              <div style="font-size:.75rem;color:var(--grey)">Llamar a quien hizo la página 😄</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="admin-btn-sec" onclick="closeAdmin()" style="margin-top:.5rem;">Cerrar</button>
+      </div>
+
+      <div class="admin-pane" id="tab-precios">
+        <p class="admin-hint">Actualizá el precio de cualquier producto existente.</p>
+        <div id="precios-list"></div>
+        <button class="admin-btn" onclick="guardarPrecios()" style="margin-top:1rem;">Guardar cambios</button>
+        <button class="admin-btn-sec" onclick="closeAdmin()">Cerrar</button>
+        <p class="admin-msg" id="precios-msg" style="color:var(--rose-d);font-size:.74rem;margin-top:.8rem;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ADMIN_PASS = "buenos2026";
+const CAT_LABELS = { desayuno:'☕ Desayuno', cocina:'🍳 Cocina', picada:'🫒 Picada Time', merienda:'🫖 Merienda', horno:'🔥 Apto Horno', hogar:'🌿 Hogar', infaltables:'⭐ Infaltables', varios:'✨ Varios' };
+
+// Imágenes base del catálogo (relativas a imgs/)
+const IMGS_BASE = {
+  kit_desayuno:'imgs/kit_desayuno.png', taza_plato:'imgs/taza_plato.png',
+  mate:'imgs/mate.png', plato_tostada:'imgs/plato_tostada.png',
+  apoyacuchara:'imgs/apoyacuchara.png', organizador_utensillos:'imgs/organizador_utensillos.png',
+  platos:'imgs/platos.png', huevera:'imgs/huevera.png',
+  aceitunero:'imgs/aceitunero.png', cuenco_palta:'imgs/cuenco_palta.png',
+  tabla_argentina:'imgs/tabla_argentina.png', provoletera:'imgs/provoletera.png',
+  tazas:'imgs/tazas.png', plato_rectangular:'imgs/plato_rectangular.png',
+  bowl:'imgs/bowl.png', azucarera:'imgs/azucarera.png',
+  tartera:'imgs/tartera.png', bandeja_asas:'imgs/bandeja_asas.png',
+  budinera:'imgs/budinera.png', bandeja_cuadrada:'imgs/bandeja_cuadrada.png',
+  maceta_pequena:'imgs/maceta_pequena.png', portallaves:'imgs/portallaves.png',
+  centro_mesa:'imgs/centro_mesa.png', portaespiral:'imgs/portaespiral.png',
+  servilletero:'imgs/servilletero.png', portasahumerios:'imgs/portasahumerios.png',
+  hornillos:'imgs/hornillos.png', bandeja:'imgs/bandeja.png',
+  bandeja_cenicero:'imgs/bandeja_cenicero.png', alajeros:'imgs/alajeros.png',
+  bowl_dip:'imgs/bowl_dip.png', jabonera:'imgs/jabonera.png'
+};
+
+const PRODS_BASE = [
+  {id:'kit_desayuno', cat:'desayuno', nombre:'Kit Desayuno', detalle:'Taza + Plato de tostada + Cuchara', precio:'$28.000', imgKey:'kit_desayuno', consultar:''},
+  {id:'taza_plato',   cat:'desayuno', nombre:'Taza + Plato', detalle:'', precio:'$15.000', imgKey:'taza_plato', consultar:''},
+  {id:'mate',         cat:'desayuno', nombre:'Mate', detalle:'', precio:'$6.000', imgKey:'mate', consultar:''},
+  {id:'plato_tostada',cat:'desayuno', nombre:'Plato de Tostada', detalle:'x unidad', precio:'$7.000', imgKey:'plato_tostada', consultar:''},
+  {id:'apoyacuchara', cat:'cocina',   nombre:'Apoyacuchara', detalle:'', precio:'$5.000', imgKey:'apoyacuchara', consultar:''},
+  {id:'organizador',  cat:'cocina',   nombre:'Organizador de Utensillos', detalle:'', precio:'$13.000', imgKey:'organizador_utensillos', consultar:''},
+  {id:'platos',       cat:'cocina',   nombre:'Platos', detalle:'23cm diám.', precio:'$15.000', imgKey:'platos', consultar:''},
+  {id:'huevera',      cat:'cocina',   nombre:'Huevera', detalle:'', precio:'$10.000', imgKey:'huevera', consultar:''},
+  {id:'aceitunero',   cat:'picada',   nombre:'Aceitunero', detalle:'', precio:'$10.000', imgKey:'aceitunero', consultar:''},
+  {id:'cuenco_palta', cat:'picada',   nombre:'Cuenco Palta', detalle:'30cm', precio:'$25.000', imgKey:'cuenco_palta', consultar:''},
+  {id:'tabla_arg',    cat:'picada',   nombre:'Tabla de Argentina', detalle:'40cm', precio:'$18.000', imgKey:'tabla_argentina', consultar:''},
+  {id:'provoletera',  cat:'picada',   nombre:'Provoletera', detalle:'', precio:'$10.000', imgKey:'provoletera', consultar:''},
+  {id:'tazas',        cat:'merienda', nombre:'Tazas', detalle:'', precio:'$10.000', imgKey:'tazas', consultar:''},
+  {id:'plato_rect',   cat:'merienda', nombre:'Plato Rectangular', detalle:'20cm', precio:'$13.000', imgKey:'plato_rectangular', consultar:''},
+  {id:'bowl',         cat:'merienda', nombre:'Bowl', detalle:'', precio:'$8.000', imgKey:'bowl', consultar:''},
+  {id:'azucarera',    cat:'merienda', nombre:'Azucarera', detalle:'', precio:'$15.000', imgKey:'azucarera', consultar:''},
+  {id:'tartera',      cat:'horno',    nombre:'Tartera', detalle:'25cm diám.', precio:'$30.000', imgKey:'tartera', consultar:''},
+  {id:'bandeja_asas', cat:'horno',    nombre:'Bandeja con Asas', detalle:'20cm', precio:'$20.000', imgKey:'bandeja_asas', consultar:''},
+  {id:'budinera',     cat:'horno',    nombre:'Budinera', detalle:'', precio:'$18.000', imgKey:'budinera', consultar:''},
+  {id:'bandeja_cuad', cat:'horno',    nombre:'Bandeja Cuadrada', detalle:'25cm x 25cm', precio:'$30.000', imgKey:'bandeja_cuadrada', consultar:''},
+  {id:'maceta',       cat:'hogar',    nombre:'Maceta Pequeña', detalle:'', precio:'$8.000', imgKey:'maceta_pequena', consultar:''},
+  {id:'portallaves',  cat:'hogar',    nombre:'Portallaves', detalle:'', precio:'$10.000', imgKey:'portallaves', consultar:''},
+  {id:'centro_mesa',  cat:'hogar',    nombre:'Centro de Mesa', detalle:'', precio:'$18.000', imgKey:'centro_mesa', consultar:''},
+  {id:'portaespiral', cat:'hogar',    nombre:'Portaespiral', detalle:'', precio:'$12.000', imgKey:'portaespiral', consultar:''},
+  {id:'servilletero', cat:'infaltables', nombre:'Servilletero', detalle:'', precio:'$7.000', imgKey:'servilletero', consultar:''},
+  {id:'portasahum',   cat:'infaltables', nombre:'Portasahumerios', detalle:'', precio:'$3.000', imgKey:'portasahumerios', consultar:''},
+  {id:'hornillos',    cat:'infaltables', nombre:'Hornillos', detalle:'', precio:'$9.000', imgKey:'hornillos', consultar:''},
+  {id:'bandeja',      cat:'infaltables', nombre:'Bandeja', detalle:'', precio:'$12.000', imgKey:'bandeja', consultar:''},
+  {id:'cenicero',     cat:'varios',   nombre:'Bandeja / Cenicero', detalle:'', precio:'$8.000', imgKey:'bandeja_cenicero', consultar:''},
+  {id:'alajeros',     cat:'varios',   nombre:'Alajeros', detalle:'', precio:'$10.000', imgKey:'alajeros', consultar:'Consultar modelo'},
+  {id:'bowl_dip',     cat:'varios',   nombre:'Bowl + Dip', detalle:'', precio:'$15.000', imgKey:'bowl_dip', consultar:''},
+  {id:'jabonera',     cat:'varios',   nombre:'Jabonera', detalle:'', precio:'$6.000', imgKey:'jabonera', consultar:''},
+];
+
+// Galería base con imágenes del catálogo
+const GALERIA_BASE = [
+  {url:'imgs/kit_desayuno.png', titulo:'Kit Desayuno'},
+  {url:'imgs/taza_plato.png', titulo:'Taza + Plato Argentina'},
+  {url:'imgs/plato_tostada.png', titulo:'Plato de Tostada'},
+  {url:'imgs/aceitunero.png', titulo:'Aceitunero'},
+  {url:'imgs/cuenco_palta.png', titulo:'Cuenco Palta'},
+  {url:'imgs/tabla_argentina.png', titulo:'Tabla de Argentina'},
+  {url:'imgs/provoletera.png', titulo:'Provoletera'},
+  {url:'imgs/tazas.png', titulo:'Tazas'},
+  {url:'imgs/tartera.png', titulo:'Tartera'},
+  {url:'imgs/budinera.png', titulo:'Budinera'},
+  {url:'imgs/maceta_pequena.png', titulo:'Macetas'},
+  {url:'imgs/portaespiral.png', titulo:'Portaespiral'},
+  {url:'imgs/hornillos.png', titulo:'Hornillos'},
+  {url:'imgs/bandeja_cenicero.png', titulo:'Bandeja / Cenicero'},
+  {url:'imgs/alajeros.png', titulo:'Alajeros'},
+  {url:'imgs/bowl_dip.png', titulo:'Bowl + Dip'},
+  {url:'imgs/inspo1.png', titulo:'Inspo'},
+  {url:'imgs/inspo4.png', titulo:'Inspo'},
+  {url:'imgs/inspo7.png', titulo:'Inspo'},
+  {url:'imgs/inspo9.png', titulo:'Inspo'},
+];
+
+/* STORAGE */
+function getProductos() { try { return JSON.parse(localStorage.getItem('bh_productos') || 'null') || PRODS_BASE; } catch { return PRODS_BASE; } }
+function saveProductos(a) { localStorage.setItem('bh_productos', JSON.stringify(a)); }
+function getGaleria() { try { return JSON.parse(localStorage.getItem('bh_galeria') || 'null') || GALERIA_BASE; } catch { return GALERIA_BASE; } }
+function saveGaleria(a) { localStorage.setItem('bh_galeria', JSON.stringify(a)); }
+
+/* Drive converter */
+function resolveImg(url) {
+  if (!url) return '';
+  if (url.startsWith('imgs/')) return url;
+  const m1 = url.match(/\/d\/([-\w]+)/);
+  const m2 = url.match(/[?&]id=([-\w]+)/);
+  const id = m1?.[1] || m2?.[1];
+  if (id) return `https://drive.google.com/thumbnail?id=${id}&sz=w600`;
+  return url;
+}
+
+/* CATÁLOGO */
+let activeCat = 'todos';
+function filterCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCatalogo();
+}
+
+function renderCatalogo() {
+  const container = document.getElementById('products-container');
+  const prods = getProductos();
+  const filtered = activeCat === 'todos' ? prods : prods.filter(p => p.cat === activeCat);
+  container.innerHTML = '';
+  if (activeCat === 'todos') {
+    const cats = [...new Set(PRODS_BASE.map(p => p.cat))];
+    cats.forEach(cat => {
+      const catProds = filtered.filter(p => p.cat === cat);
+      if (!catProds.length) return;
+      const t = document.createElement('div'); t.className = 'cat-category-title'; t.textContent = CAT_LABELS[cat] || cat;
+      container.appendChild(t); container.appendChild(buildGrid(catProds));
+    });
+  } else { container.appendChild(buildGrid(filtered)); }
+}
+
+function buildGrid(prods) {
+  const grid = document.createElement('div'); grid.className = 'products-grid';
+  prods.forEach(p => {
+    const card = document.createElement('div'); card.className = 'product-card';
+    const imgSrc = p.imgKey ? (IMGS_BASE[p.imgKey] || '') : resolveImg(p.img || '');
+    const waMsg = encodeURIComponent(`Hola Nazarena! Me interesa: ${p.nombre}. ¿Podés darme más info?`);
+    card.innerHTML = `
+      <div class="product-img" onclick="openLightbox('${imgSrc}','${p.nombre}')">
+        ${imgSrc ? `<img src="${imgSrc}" alt="${p.nombre}" loading="lazy"/>` : '🏺'}
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.nombre}</div>
+        ${p.detalle ? `<div class="product-detail">${p.detalle}</div>` : ''}
+        <div class="product-price">${p.precio}</div>
+        ${p.consultar ? `<div class="product-consult">${p.consultar}</div>` : ''}
+        <a href="https://wa.me/5492221413749?text=${waMsg}" target="_blank" class="product-wa-btn">💬 Pedir</a>
+      </div>`;
+    grid.appendChild(card);
+  });
+  return grid;
+}
+
+/* GALERÍA */
+function renderGaleria() {
+  const masonry = document.getElementById('gallery-masonry');
+  const empty = document.getElementById('gallery-empty');
+  const fotos = getGaleria();
+  masonry.innerHTML = '';
+  if (!fotos.length) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  fotos.forEach(f => {
+    const src = f.url.startsWith('imgs/') ? f.url : resolveImg(f.url);
+    const div = document.createElement('div'); div.className = 'gallery-item';
+    div.innerHTML = `<img src="${src}" alt="${f.titulo}" loading="lazy"/><div class="g-overlay"><span>${f.titulo}</span></div>`;
+    div.onclick = () => openLightbox(src, f.titulo);
+    masonry.appendChild(div);
+  });
+}
+
+/* ADMIN */
+function agregarProducto() {
+  const nombre = document.getElementById('p-nombre').value.trim();
+  const precio = document.getElementById('p-precio').value.trim();
+  const cat    = document.getElementById('p-categoria').value;
+  const detalle   = document.getElementById('p-detalle').value.trim();
+  const img       = document.getElementById('p-img').value.trim();
+  const consultar = document.getElementById('p-consultar').value.trim();
+  const msg = document.getElementById('prod-msg');
+  if (!nombre || !precio) { msg.textContent = 'Completá nombre y precio.'; return; }
+  const prods = getProductos();
+  prods.push({ id:'p'+Date.now(), cat, nombre, precio, detalle, img, consultar, imgKey:'' });
+  saveProductos(prods); renderCatalogo();
+  ['p-nombre','p-precio','p-detalle','p-img','p-consultar'].forEach(id => document.getElementById(id).value='');
+  msg.textContent = '✓ Producto agregado.'; setTimeout(() => msg.textContent='', 3000);
+}
+
+function agregarFoto() {
+  const url    = document.getElementById('g-url').value.trim();
+  const titulo = document.getElementById('g-titulo').value.trim();
+  const msg = document.getElementById('gal-msg');
+  if (!url || !titulo) { msg.textContent = 'Completá los dos campos.'; return; }
+  const fotos = getGaleria(); fotos.unshift({ url, titulo }); saveGaleria(fotos);
+  document.getElementById('g-url').value=''; document.getElementById('g-titulo').value='';
+  msg.textContent = '✓ Foto agregada.'; setTimeout(() => msg.textContent='', 3000);
+  renderGaleria(); renderAdminGal();
+}
+
+function renderAdminGal() {
+  const list = document.getElementById('admin-gal-list');
+  const fotos = getGaleria(); list.innerHTML = '';
+  fotos.forEach((f, i) => {
+    const src = f.url.startsWith('imgs/') ? f.url : resolveImg(f.url);
+    const div = document.createElement('div'); div.className = 'admin-prod-item';
+    div.innerHTML = `<img class="admin-prod-img" src="${src}" alt="" onerror="this.style.background='var(--blush)'"/>
+      <div class="admin-prod-info"><div class="admin-prod-name">${f.titulo}</div></div>
+      <button class="admin-del" onclick="eliminarFoto(${i})">✕</button>`;
+    list.appendChild(div);
+  });
+}
+
+function eliminarFoto(i) {
+  if (!confirm('¿Eliminar?')) return;
+  const fotos = getGaleria(); fotos.splice(i,1); saveGaleria(fotos); renderGaleria(); renderAdminGal();
+}
+
+/* EDITAR PRECIOS */
+function renderPrecios() {
+  const list = document.getElementById('precios-list');
+  const prods = getProductos(); list.innerHTML = '';
+  prods.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.style = 'display:flex;align-items:center;gap:.8rem;padding:.5rem 0;border-bottom:1px solid var(--border)';
+    div.innerHTML = `
+      <span style="flex:1;font-size:.83rem;color:var(--brown)">${p.nombre} <span style="color:var(--grey);font-size:.72rem">${CAT_LABELS[p.cat]||''}</span></span>
+      <input type="text" value="${p.precio}" data-idx="${i}" style="width:110px;padding:.35rem .6rem;border:1px solid var(--border);border-radius:3px;font-size:.82rem;font-family:Lato,sans-serif;background:var(--cream)" class="precio-input"/>`;
+    list.appendChild(div);
+  });
+}
+
+function guardarPrecios() {
+  const prods = getProductos();
+  document.querySelectorAll('.precio-input').forEach(input => {
+    const i = parseInt(input.dataset.idx);
+    if (prods[i]) prods[i].precio = input.value.trim();
+  });
+  saveProductos(prods); renderCatalogo();
+  const msg = document.getElementById('precios-msg');
+  msg.textContent = '✓ Precios actualizados.'; setTimeout(() => msg.textContent='', 3000);
+}
+
+/* LIGHTBOX */
+function openLightbox(src, cap) {
+  if (!src) return;
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = cap;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+document.getElementById('lightbox-close').onclick = closeLightbox;
+document.getElementById('lightbox').onclick = e => { if(e.target.id==='lightbox') closeLightbox(); };
+
+/* ADMIN MODAL */
+let logoClicks=0, logoTimer;
+document.getElementById('logo-secret').addEventListener('click', e => {
+  e.preventDefault(); logoClicks++; clearTimeout(logoTimer);
+  logoTimer = setTimeout(() => logoClicks=0, 2000);
+  if (logoClicks >= 5) { logoClicks=0; openAdmin(); }
+});
+document.getElementById('admin-open-btn').onclick = openAdmin;
+function openAdmin() {
+  document.getElementById('admin-modal').classList.add('active');
+  document.getElementById('admin-login').style.display='block';
+  document.getElementById('admin-panel').style.display='none';
+  document.getElementById('admin-pass').value=''; document.getElementById('admin-err').textContent='';
+}
+function closeAdmin() { document.getElementById('admin-modal').classList.remove('active'); }
+function checkPass() {
+  if (document.getElementById('admin-pass').value === ADMIN_PASS) {
+    document.getElementById('admin-login').style.display='none';
+    document.getElementById('admin-panel').style.display='block';
+    renderAdminGal(); renderPrecios();
+  } else { document.getElementById('admin-err').textContent='Contraseña incorrecta.'; }
+}
+document.getElementById('admin-pass').addEventListener('keydown', e => { if(e.key==='Enter') checkPass(); });
+document.getElementById('admin-modal').onclick = e => { if(e.target.id==='admin-modal') closeAdmin(); };
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.admin-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active'); btn.classList.add('active');
+  if (id==='tab-precios') renderPrecios();
+  if (id==='tab-galeria') renderAdminGal();
+}
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:.01, rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* INIT */
+renderCatalogo();
+renderGaleria();
+</script>
+</body>
+</html>
